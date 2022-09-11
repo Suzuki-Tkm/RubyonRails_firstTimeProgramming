@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   1.upto(18) do |n|
     get "lesson/step#{n}(/:name)" => "lesson#step#{n}"
   end
+  get "lesson/step19(/:name)" => "lesson#step19"
+  get "lesson/step20(/:price)" => "lesson#step20"
 end

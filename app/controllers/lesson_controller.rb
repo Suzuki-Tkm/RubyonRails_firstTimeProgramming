@@ -70,4 +70,12 @@ class LessonController < ApplicationController
       "ピーラー" => 945
     }
   end
+
+  def step19
+    # @name = params[:name]
+  end
+
+  def step20
+    @price = params[:price].to_i
+  end
 end
