@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
   get "lesson/step19(/:name)" => "lesson#step19"
   get "lesson/step20(/:price)" => "lesson#step20"
+  get "lesson/add(/:n)(/:m)" => "lesson#add"
+  get "lesson/error" => "lesson#error"
 end

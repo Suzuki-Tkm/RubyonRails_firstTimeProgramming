@@ -78,4 +78,17 @@ class LessonController < ApplicationController
   def step20
     @price = params[:price].to_i
   end
+
+  def add
+    begin
+      @n = Integer(params[:n])
+      @m = Integer(params[:m])
+    rescue => exception
+      flash[:notice] = "数値を指定してください。"
+      redirect_to action: "error"
+    end
+  end
+
+  def error
+  end
 end
