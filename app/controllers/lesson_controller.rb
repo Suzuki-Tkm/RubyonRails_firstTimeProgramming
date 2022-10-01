@@ -91,4 +91,10 @@ class LessonController < ApplicationController
 
   def error
   end
+
+  def db_practice
+    # @members = Member.where(name: "Taro").where("number < 20")
+    # @members = Member.where(sex: 2).order(number: :desc)
+    # @members = Member.where(sex: 2).order(number: :desc).first
+  end
 end
