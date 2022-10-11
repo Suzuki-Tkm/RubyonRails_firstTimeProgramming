@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get "lesson/add(/:n)(/:m)" => "lesson#add"
   get "lesson/error" => "lesson#error"
   get "lesson/db_practice" => "lesson#db_practice"
+
+  resources :members do
+    get "search" , on: :collection
+  end
 end
