@@ -25,7 +25,7 @@ class MembersController < ApplicationController
   end
 
   def search
-    @members = Member.search(params[:q])
+    @members = Member.search(params[:q] , params[:radio])
     render "index"
   end
 end

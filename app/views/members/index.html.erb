@@ -3,6 +3,14 @@
 
 <%= form_tag :search_members, method: :get, class: "search" do %>
   <%= text_field_tag "q", params[:q] %>
+
+  <%= radio_button_tag "radio", "1" %>
+  <%= label_tag "r1_radio" , "男" %>
+  <%= radio_button_tag "radio", "2" %>
+  <%= label_tag "r2_radio" , "女" %>
+  <%= radio_button_tag "radio", "指定なし" , checked=true %>
+  <%= label_tag "r3_radio" , "指定なし" %>
+
   <%= submit_tag "検索" %>
 <% end %>
 
