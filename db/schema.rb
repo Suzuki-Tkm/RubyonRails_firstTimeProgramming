@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_10_07_055821) do
     t.boolean "administrator", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "alph_name", null: false
+    t.string "alph_name", default: "", null: false
   end
 
 end
