@@ -13,6 +13,9 @@ class Member < ApplicationRecord
   uniqueness: { case_sensitive: false }
   validates :full_name, presence: true, length: { maximum: 20 }
   validates :email, email: { allow_blank: true }
+  validates :birthday, date: {
+    before: ->(obj) { Date.today }
+  }
 
   class << self
     def search(query , p)
