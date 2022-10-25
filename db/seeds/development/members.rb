@@ -12,6 +12,8 @@ gnames_alph = ["Taro", "Jiro", "Hanako"]
     birthday: "1981-12-01",
     sex: [1, 1, 2][idx % 3],
     administrator: (idx == 0),
-    alph_name: "#{fnames_alph[idx % 4]} #{gnames_alph[idx % 3]}"
+    alph_name: "#{fnames_alph[idx % 4]} #{gnames_alph[idx % 3]}",
+    password: "asagao!",
+    password_confirmation: "asagao!"
   )
 end
