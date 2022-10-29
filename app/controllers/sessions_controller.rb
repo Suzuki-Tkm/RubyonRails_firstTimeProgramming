@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
   def create
     member = Member.find_by(name: params[:name])
     if member&.authenticate(params[:password])
-      # cookies[:member_id] = {value: member.id , expires: 15.seconds.from_now }
-      cookies[:member_id] = {value: member.id}
+      cookies[:member_id] = {value: member.id , expires: 15.seconds.from_now }
+      # cookies[:member_id] = {value: member.id}
     else
       flash.alert = "名前とパスワードが一致しません"
     end
