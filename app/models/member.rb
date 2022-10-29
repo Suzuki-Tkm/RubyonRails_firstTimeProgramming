@@ -21,6 +21,9 @@ class Member < ApplicationRecord
     before: ->(obj) { Date.today }
   }
 
+  attr_accessor :current_password
+  validates :password, presence: { if: :current_password }
+
   class << self
     def search(query , p)
       rel = order("number")

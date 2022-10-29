@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :update_expiration_time
+  # before_action :update_expiration_time
   
   private def current_member
     Member.find_by(id: cookies[:member_id]) if cookies[:member_id]
