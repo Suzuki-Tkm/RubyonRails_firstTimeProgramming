@@ -7,9 +7,9 @@ class EntriesController < ApplicationController
     else
       @entries = Entry.all
     end
-    @entries = @entries.readable_for(current_member).order(posted_at: :desc)
-    # @entries = @entries.readable_for(current_member)
-    #   .order(posted_at: :desc).page(params[:page]).per(3)
+    # @entries = @entries.readable_for(current_member).order(posted_at: :desc)
+    @entries = @entries.readable_for(current_member)
+      .order(posted_at: :desc).page(params[:page]).per(3)
   end
 
   def show

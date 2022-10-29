@@ -12,7 +12,7 @@
       <%= link_to "もっと読む", entry %></p>
     <%= render "footer", entry: entry %>
   <% end %>
-  <%# <%= paginate @entries %>
+  <%= paginate @entries %>
 <% else %>
   <p>記事がありません。</p>
 <% end %>
