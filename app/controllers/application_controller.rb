@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   private def update_expiration_time
-    cookies[:member_id] = {value: cookies[:member_id] , expires: 15.seconds.from_now }
+    cookies[:member_id] = {value: cookies[:member_id] , expires: 15.seconds.from_now } if cookies[:member_id]
   end
 end
