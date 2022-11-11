@@ -1,0 +1,8 @@
+<% if @duties.present? %>
+  <% @duties.each do |duty| %>
+    <h2><%= duty.author.full_name %></h2>
+    <p><%= duty.role %></p>
+  <% end %>
+<% else %>
+  <p>記事がありません。</p>
+<% end %>

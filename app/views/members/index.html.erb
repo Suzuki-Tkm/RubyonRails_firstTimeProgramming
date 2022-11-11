@@ -24,6 +24,7 @@
         <th>ユーザー名</th>
         <th>氏名</th>
         <th>操作</th>
+        <th>係</th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +37,13 @@
             <%= link_to "編集", [:edit, member] %> |
             <%= link_to "削除", member, method: :delete,
               data: { confirm: "本当に削除しますか?" } %>
+          </td>
+          <td>
+          <% @duties.each do |duty| %>
+            <% if duty.member_id == member.id %>
+              <%= duty.role %>
+            <% end %>
+          <% end %>
           </td>
         </tr>
       <% end %>

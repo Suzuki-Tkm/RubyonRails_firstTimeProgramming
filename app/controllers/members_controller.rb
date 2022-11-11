@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   def index
     @members = Member.order("number")
       .page(params[:page]).per(15)
+    @duties = Duty.all
   end
 
   def show
@@ -17,6 +18,7 @@ class MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
+    @duties = @member.duties
   end
 
   def create
