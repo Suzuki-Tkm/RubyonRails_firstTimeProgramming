@@ -2,7 +2,7 @@ class Member < ApplicationRecord
   has_secure_password
 
   has_many :entries, dependent: :destroy
-  has_many :duties
+  has_many :duties , dependent: :nullify
   
   validates :number, presence: true,
   numericality: {

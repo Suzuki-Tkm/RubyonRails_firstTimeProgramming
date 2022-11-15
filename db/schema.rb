@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_11_11_062726) do
 
   create_table "duties", force: :cascade do |t|
-    t.integer "member_id", null: false
+    t.integer "member_id"
     t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
