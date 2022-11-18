@@ -62,6 +62,10 @@ class EntriesController < ApplicationController
   end
 
   def voted
-    @entries = current_member.voted_entries.published.order("votes.created_at DESC").page(params[:page]).per(15)
+    if params[:id] == nil
+      @entries = current_member.voted_entries.published.order("votes.created_at DESC").page(params[:page]).per(15)
+    else
+      @entries = Member.find(params[:id]).voted_entries.published.order("votes.created_at DESC").page(params[:page]).per(15)
+    end
   end
 end
