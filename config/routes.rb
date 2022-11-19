@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "lesson/error" => "lesson#error"
   get "lesson/db_practice" => "lesson#db_practice"
 
-  resources :members do
+  resources :members , only: [:index, :show] do
     get "search" , on: :collection
     resources :entries, only: [:index]
     resources :duties, only: [:index]
@@ -36,5 +36,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "top#index"
+    resources :members do
+      get "search", on: :collection
+    end
   end
 end
