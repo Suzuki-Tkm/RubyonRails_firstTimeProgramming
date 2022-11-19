@@ -33,4 +33,8 @@ Rails.application.routes.draw do
 
   resources :entries
   resources :duties
+
+  namespace :admin do
+    root "top#index"
+  end
 end
