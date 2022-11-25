@@ -1,6 +1,7 @@
 <h2>ログイン</h2>
 <% if flash.alert %><p class="alert"><%= flash.alert %></p><% end %>
 <%= form_tag :session, id: "login-form" do %>
+<%= menu_link_to "会員登録はこちら" , :new_account %>
 <%# <form id="login-form"> %>
   <div>
     <label>ユーザー名：</label>
