@@ -2,6 +2,10 @@
 
 <table class="attr">
   <tr>
+    <th>プロフィール写真</th>
+    <td><%=form.file_field:new_profile_picture%></td>
+  </tr>
+  <tr>
     <th><%= form.label :number, "背番号" %></th>
     <td><%= form.text_field :number, size: 8 %></td>
   </tr>
