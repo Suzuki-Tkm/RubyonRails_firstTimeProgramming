@@ -9,6 +9,14 @@ class Member < ApplicationRecord
   has_one_attached :profile_picture
   attribute :new_profile_picture
   attribute :remove_profile_picture, :boolean
+
+  attribute :new_duty_ids, :intarray , default: []
+
+  after_initialize do 
+    duty_ids.each do |id|
+      new_duty_ids.push(id)
+    end
+  end
   
   validates :number, presence: true,
   numericality: {
@@ -27,6 +35,11 @@ class Member < ApplicationRecord
   validates :birthday, date: {
     before: ->(obj) { Date.today }
   }
+  # validate do
+  #   duty_ids.each do |duty|
+  #     duty.id == nil
+  #   end
+  # end
 
   attr_accessor :current_password
   validates :password, presence: { if: :current_password }
@@ -51,6 +64,7 @@ class Member < ApplicationRecord
     elsif remove_profile_picture
       self.profile_picture.purge
     end
+    self.duty_ids = new_duty_ids
   end
 
   class << self
