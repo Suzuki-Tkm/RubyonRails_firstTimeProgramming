@@ -35,11 +35,17 @@ class Member < ApplicationRecord
   validates :birthday, date: {
     before: ->(obj) { Date.today }
   }
-  # validate do
-  #   duty_ids.each do |duty|
-  #     duty.id == nil
-  #   end
-  # end
+  validate do
+    duty_id = []
+    Duty.all.each do |duty|
+      duty_id.push(duty.id) if duty.member_id != nil
+    end
+    new_duty_ids.each do |duty|
+      if Duty.find(duty).member_id != self.id
+        errors.add(:base , "#{Duty.find(duty).role}はすでに決定しています") if duty_id.include?(duty)
+      end 
+    end
+  end
 
   attr_accessor :current_password
   validates :password, presence: { if: :current_password }

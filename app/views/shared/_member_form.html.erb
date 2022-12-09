@@ -65,8 +65,10 @@
     <th>役職</th>
     <td>
     <% Duty.all.each do |duty| %>
-      <%= form.check_box :new_duty_ids , { multiple: true }, duty.id, "" %>
-      <%= duty.role %>&emsp;
+      <% if duty.member_id == nil || duty.member_id == @member.id  %>
+        <%= form.check_box :new_duty_ids , { multiple: true }, duty.id, "" %>
+        <%= duty.role %>&emsp;
+      <% end %>
     <% end %>
     </td>
   </tr>
